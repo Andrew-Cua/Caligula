@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyCxnKBRhNj3SqXhqk-YCMGUIR1UEc4Zx34',
+    authDomain: 'caligula-34097.firebaseapp.com',
+    databaseURL: 'https://caligula-34097.firebaseio.com',
+    storageBucket: 'caligula-34097.appspot.com',
+    projectId: 'caligula-34097'
+
+  }
 };
 
 /*

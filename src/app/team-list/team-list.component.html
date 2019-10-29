@@ -1,0 +1,25 @@
+
+<div class="container max-width" >
+  <div class="row mt-2 mx-1" *ngFor="let team of teams">
+<mdb-card>
+  <!--Card content-->
+  <mdb-card-body>
+
+    <!--Title-->
+    <mdb-card-title>
+      <h4>{{team.teamNumber}}</h4>
+      <h3 class="red-text">{{team.teamName}}</h3>
+    </mdb-card-title>
+
+    <!--Text-->
+    <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's
+      content.
+    </mdb-card-text>
+
+    <a mdbBtn color="danger" mdbWavesEffect (click)="goToTeamProfile(team.teamNumber)">Profile</a>
+  </mdb-card-body>
+</mdb-card>
+</div>
+</div>
+
+

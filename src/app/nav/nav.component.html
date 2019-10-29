@@ -1,0 +1,25 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark red">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" (click)="routerService.goToPage('')">Home</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active" *ngFor="let path of paths">
+              <a class="nav-link waves-light" mdbWavesEffect (click)="routerService.goToPage(path.path)">{{path.name}}</a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown" dropdown>
+          </li>
+
+      </ul>
+      <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
