@@ -21,11 +21,10 @@
     </div>
     <h2>Game Info</h2>
     <div class="form-group container">
-      <mdb-checkbox [(ngModel)]="model.canDoHatches" name="hatches" class="m-2">Can Do Hatches</mdb-checkbox>
-      <mdb-checkbox [(ngModel)]="model.canDoCargo" name="cargo" class="m-2">Can Do Cargo</mdb-checkbox>
-      <br/>
-      <label for="climbing">Climb Lvl</label>
-        <input class="form-control" type="number" id="climblvl" required [(ngModel)]="model.climbLvl" name="climb">
+        <label for="gamePieceAffinity">Game Element Accuracy</label>
+          <input type="number" class="form-control" required [(ngModel)]="model.gameElementAccuracy" name="accuracy">
+        <label for="climbing">Climb Lvl</label>
+          <input class="form-control" type="number" id="climblvl" required [(ngModel)]="model.climbLvl" name="climb">
     </div>
 
 
@@ -33,6 +32,7 @@
     <button type="submit" mdbBtn color="success" mdbWavesEffect>Submit</button>
     <button type="submit" mdbBtn color="default" mdbWavesEffect (click)="newTeam()">New Team</button>
 
+    <div [*ngIf="submited"]class="alert-success">Submitted!</div>
   </form>
   {{diagnostic}}
 </div>

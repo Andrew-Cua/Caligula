@@ -8,40 +8,7 @@
 
       <input type="text" class="form-control" id="teamName" required [(ngModel)]="model.teamName" name="teamName">
     </div>
-    <h2>Robot Info</h2>
-    <div class="form-group">
-      <label for="driveType">Drivetrain</label>
-      <select class="form-control" id="drivetrain" required [(ngModel)]="model.typeOfDrive" name="drivetrain">
-        <option *ngFor="let type of driveTypes" [value]="type">{{type}}</option>
-      </select>
-      <label for="motorType">Type of Motor</label>
-      <select class="form-control" id="motor" required [(ngModel)]="model.driveMotor" name="DriveMotor">
-        <option *ngFor="let type of motorTypes" [value]="type">{{type}}</option>
-      </select>
-      <label for="numMotor">Number of Motors</label>
-      <input type="number" class="form-control" id="numMotor" required [(ngModel)]="model.numOfDriveMotors" name="numOfDriveMotor">
-      <label for="typeOfBot">Type of Robot</label>
-      <select  id="robot" class="form-control" required [(ngModel)]="model.typeOfBot" name="robot">
-        <option *ngFor="let type of botTypes" value="type">{{ type }}</option>
-      </select>
-      <label for="reach">Max Reach</label>
-      <input type="number" class="form-control" required [(ngModel)]="model.maxReach" name="reach">
-    </div>
-    <h2>Game Info</h2>
-    <div class="form-group container">
-      <mdb-checkbox [(ngModel)]="model.canDoHatches" name="hatches" class="m-2">Can Do Hatches</mdb-checkbox>
-      <mdb-checkbox [(ngModel)]="model.canDoCargo" name="cargo" class="m-2">Can Do Cargo</mdb-checkbox>
-      <br/>
-      <label for="climbing">Climb Lvl</label>
-        <input class="form-control" type="number" id="climblvl" required [(ngModel)]="model.climbLvl" name="climb">
-    </div>
-    <h2>Robot Photo</h2>
-    <input type="file" name="photo" accept=".png .jpg .jpeg" (change)="upload($event)">
-
-
-    <button type="submit" mdbBtn color="success" mdbWavesEffect>Submit</button>
-    <button type="submit" mdbBtn color="default" mdbWavesEffect (click)="newTeam()">New Team</button>
-
-  </form>
-  <div class="alert alert-success" *ngIf="submitted">Form Submitted!</div>
+    </form>
+    <app-update class="mx-2 mt-2" style="max-width:66%;" [team]="model" [toUpdate]="false"></app-update>
 </div>
+

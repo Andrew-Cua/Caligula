@@ -11,6 +11,7 @@ import { TeamService } from '../team.service';
 export class UpdateComponent implements OnInit {
 
   @Input() team: Team;
+  @Input() toUpdate: boolean;
   private teamSub: Subscription;
   teams: Team[];
   submitted = false;
@@ -19,8 +20,7 @@ export class UpdateComponent implements OnInit {
   botTypes = ['Arm', 'elevator', 'static', 'drivetrain'];
 
   model: Team = {
-    canDoCargo: false,
-    canDoHatches: false,
+    gameElementAccuracy: null,
     climbLvl: null,
     driveMotor: null,
     maxReach: null,
@@ -48,8 +48,7 @@ export class UpdateComponent implements OnInit {
     this.model = {
       averageClimbPoints: null,
       averageRankingScore: null,
-      canDoCargo: false,
-      canDoHatches: false,
+      gameElementAccuracy: null,
       ccwm: null,
       climbLvl: null,
       dpr: null,
@@ -57,8 +56,6 @@ export class UpdateComponent implements OnInit {
       maxReach: null,
       numOfDriveMotors: null,
       opr: null,
-      pointsFromCargo: null,
-      pointsFromHatch: null,
       rankingPoints: null,
       rankingScore: null,
       teamName: null,
@@ -67,12 +64,31 @@ export class UpdateComponent implements OnInit {
       typeOfDrive: null,
     };
     console.log('Clearing team');
+    this.submitted = false;
   }
 
    submit(team: Team) {
      this.model.teamName = this.team.teamName;
      this.model.teamNumber = this.team.teamNumber;
-     this.teamService.updateTeam(team, this.model);
+     let notFoundFlag = true;
+     if ( this.model.teamName != null && this.model.teamNumber != null) {
+      this.teams.forEach(teamD => {
+        if ( this.model.teamNumber === teamD.teamNumber) {
+          this.teamService.updateTeam(teamD, this.model).then(_ => {
+          this.submitted = true;
+        });
+          console.log(`updating ${team.teamNumber}`);
+          notFoundFlag = false;
+        } else {
+          notFoundFlag = true;
+        }
+      });
+      if (notFoundFlag) {
+        this.teamService.addTeam(this.model).then(_ => {
+          this.submitted = true;
+        });
+      }
+    }
     }
 
 }

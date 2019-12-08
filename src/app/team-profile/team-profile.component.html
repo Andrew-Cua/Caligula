@@ -1,1 +1,39 @@
 {{team | json}}
+<div class="container w-100 mx-3" *ngIf="readyToRender">
+  <div class="row">
+    <mdb-card class="col-6">
+      <mdb-card-body>
+      <mdb-card-title>
+        <h4>{{team.teamNumber}}</h4>
+        <h3 class="red-text">{{team.teamName}}</h3>
+      </mdb-card-title>
+      <div class="container w-100 m-0 p-0">
+        <div class="row">
+          <div class="col-4">
+            <div class="leftData">
+              <p><span class="bg-danger rounded p-1 m-1 shadow">Type:</span>{{team.typeOfBot}}</p>
+              <p><span class="bg-danger rounded p-1 m-1 shadow">Drive:</span>{{team.typeOfDrive}}</p>
+              <p><span class="bg-danger rounded p-1 m-1 shadow">Motor:</span>{{team.driveMotor}}</p>
+              <p><span class="bg-danger rounded p-1 m-1 shadow">Cargo:</span>{{team.gameElementAccuracy}}</p>
+            </div>
+          </div>
+          <div class="col-4">
+              <div class="rightData">
+                <p><span class="bg-danger rounded p-1 m-1 shadow">Climb:</span>{{team.climbLvl}}</p>
+                <p><span class="bg-danger rounded p-1 m-1 shadow">Reach:</span>{{team.maxReach}}</p>
+                <p><span class="bg-danger rounded p-1 m-1 shadow">#Motors:</span>{{team.numOfDriveMotors}}</p>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="rightData">
+                <p><span class="bg-danger rounded p-1 m-1 shadow">CCWM:</span>{{team.ccwm}}</p>
+                <p><span class="bg-danger rounded p-1 m-1 shadow">OPR:</span>{{team.opr}}</p>
+                <p><span class="bg-danger rounded p-1 m-1 shadow">DPR:</span>{{team.dpr}}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

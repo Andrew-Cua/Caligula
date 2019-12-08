@@ -2,8 +2,7 @@ export interface Team {
   id?: string;
   averageClimbPoints?: number;
   averageRankingScore?: number;
-  canDoCargo: boolean;
-  canDoHatches: boolean;
+  gameElementAccuracy?: number;
   ccwm?: number;
   climbLvl: number;
   dpr?: number;
@@ -12,8 +11,7 @@ export interface Team {
   teamName: string;
   numOfDriveMotors: number;
   opr?: number;
-  pointsFromCargo?: number;
-  pointsFromHatch?: number;
+  pointsFromGameElement?: number;
   rankingPoints?: number;
   rankingScore?: number;
   teamNumber: number;

@@ -16,6 +16,7 @@ export class TeamProfileComponent implements OnInit, OnDestroy {
   private sub: any;
   private promise: Promise<firebase.firestore.QuerySnapshot>;
   team: Team = null;
+  readyToRender = false;
   constructor(private route: ActivatedRoute, private teamSerivce: TeamService) {}
 
   ngOnInit() {
@@ -27,6 +28,8 @@ export class TeamProfileComponent implements OnInit, OnDestroy {
            const data = team.data() as Team;
            data.id = team.id;
            this.team = data;
+           console.log(data);
+           this.readyToRender = true;
          });
        });
        // In a real app: dispatch action to load the details here.

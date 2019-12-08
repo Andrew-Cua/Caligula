@@ -17,6 +17,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { UpdateComponent } from './update/update.component';
 import { TeamProfileComponent } from './team-profile/team-profile.component';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { StandScoutFormComponent } from './stand-scout-form/stand-scout-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     SearchComponent,
     NavComponent,
     UpdateComponent,
-    TeamProfileComponent
+    TeamProfileComponent,
+    StandScoutFormComponent
   ],
   imports: [
     BrowserModule,

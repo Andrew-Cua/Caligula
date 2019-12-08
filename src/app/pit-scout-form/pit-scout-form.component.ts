@@ -25,8 +25,7 @@ export class PitScoutFormComponent implements OnInit, OnDestroy {
   botTypes = ['Arm', 'elevator', 'static', 'drivetrain'];
 
   model: Team = {
-    canDoCargo: false,
-    canDoHatches: false,
+    gameElementAccuracy: null,
     climbLvl: null,
     driveMotor: null,
     maxReach: null,
@@ -54,8 +53,7 @@ export class PitScoutFormComponent implements OnInit, OnDestroy {
     this.model = {
       averageClimbPoints: null,
       averageRankingScore: null,
-      canDoCargo: false,
-      canDoHatches: false,
+      gameElementAccuracy: null,
       ccwm: null,
       climbLvl: null,
       dpr: null,
@@ -63,8 +61,7 @@ export class PitScoutFormComponent implements OnInit, OnDestroy {
       maxReach: null,
       numOfDriveMotors: null,
       opr: null,
-      pointsFromCargo: null,
-      pointsFromHatch: null,
+      pointsFromGameElement: null,
       rankingPoints: null,
       rankingScore: null,
       teamName: null,
@@ -96,13 +93,6 @@ export class PitScoutFormComponent implements OnInit, OnDestroy {
         });
       }
     }
-    }
-
-    upload(event) {
-      const file = event.target.files[0];
-      const filePath = 'photos';
-      const ref = this.afs.ref(filePath);
-      const task = ref.put(file, { customMetadata: { teamNumber: this.model.teamName } });
     }
   }
 
